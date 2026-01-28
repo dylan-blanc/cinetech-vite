@@ -32,7 +32,7 @@ function Home() {
     }
 
     return (
-        <div>
+        <div className="">
             {/* Titre */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold">
