@@ -17,10 +17,10 @@ function SideBar() {
             {/* Films / Series TV */}
             <ul className="mb-6">
                 <li className="py-1">
-                    <a href="#" className="text-white hover:text-gray-300">Films</a>
+                    <a href="" className="text-white hover:text-gray-300">Films</a>
                 </li>
                 <li className="py-1">
-                    <a href="#" className="text-white hover:text-gray-300">Serie TV</a>
+                    <a href="" className="text-white hover:text-gray-300">Serie TV</a>
                 </li>
             </ul>
 

@@ -1,12 +1,11 @@
 import useFetchAPI from '../hooks/useFetchAPI';
 import MediaCard from '../components/MediaCard';
 
-const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
-const API_URL = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR';
-
 function Home() {
 
-    const { data, loading, error } = useFetchAPI({ url: API_URL });
+    const { data, loading, error } = useFetchAPI({ url: 
+        'https://api.themoviedb.org/3/movie/popular?language=fr-FR' 
+    });
 
     const movies = data?.results || [];
 

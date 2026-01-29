@@ -3,8 +3,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SideBar from './components/SideBar';
 import Home from './view/Home';
-import Connexion from './view/Connexion';
-import Inscription from './view/Inscription';
+import AuthForm from './components/AA-ConnectForm';
+// import Connexion from './view/Connexion';
+// import Inscription from './view/Inscription';
 import './index.css';
 
 function App() {
@@ -19,9 +20,9 @@ function App() {
                     <SideBar />
                     <div className="w-4/5 p-4">
                         <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/connexion" element={<Connexion />} />
-                            <Route path="/inscription" element={<Inscription />} />
+                            <Route path="/" element={<Home />}  />
+                            <Route path="/connexion" element={<AuthForm mode="login" />} />
+                            <Route path="/inscription" element={<AuthForm mode="register" />} />
                             {/* <Route path="/series" element={<Series />} /> */}
                         </Routes>
                     </div>

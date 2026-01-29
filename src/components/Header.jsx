@@ -1,7 +1,9 @@
+import { useAuth } from "../hooks/useAuth";
 import { Link } from "react-router-dom";
 import LogoCNT from "../assets/LogoCNT.png";
 
 function Header() {
+    const { isAuthentificated, logout } = useAuth();
     return (
         <header style={{ backgroundColor: '#282129' }}>
             <div className="container mx-auto px-4 py-2">
@@ -43,6 +45,18 @@ function Header() {
                         >
                             Inscription
                         </Link>
+                        {isAuthentificated() && (
+                            <Link
+                            to="/"
+                            >
+                            <button 
+                                onClick={logout} 
+                                className="text-gray-300 hover:text-white transition-colors"
+                            >
+                                Déconnexion
+                            </button>
+                            </Link>
+                        )}
                     </nav>
                 </div>
             </div>
