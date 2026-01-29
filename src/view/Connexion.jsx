@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 function Connexion() {
     return (
         <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#1a1a1a' }}>

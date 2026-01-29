@@ -4,7 +4,7 @@ const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
 
 
  function useFetchAPI({url}){
-     const [data, setData] = useState([]);
+     const [data, setData] = useState(null);
      const [loading, setLoading] = useState(true);
      const [error, setError] = useState(null);
     
@@ -25,8 +25,8 @@ const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
                         throw new Error(`Erreur HTTP: ${response.status}`);
                     }
     
-                    const data = await response.json();
-                    setData(data.results);
+                    const result = await response.json();
+                    setData(result);
                 } catch (err) {
                     setError(err.message);
                 } finally {

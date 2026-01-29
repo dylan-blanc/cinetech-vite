@@ -6,7 +6,9 @@ const API_URL = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR';
 
 function Home() {
 
-    const { data: movies, loading, error } = useFetchAPI({ url: API_URL });
+    const { data, loading, error } = useFetchAPI({ url: API_URL });
+
+    const movies = data?.results || [];
 
     if (loading) {
         return (

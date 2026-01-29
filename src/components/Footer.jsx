@@ -10,18 +10,45 @@ function Footer() {
                 <div className="flex justify-between items-center">
                     {/* Logo TMDB à gauche */}
                     <div className="footer-logo">
-                        <img 
-                            src={LogoTMDB} 
-                            alt="TMDB Logo" 
-                            className="h-8 ml-8"
-                        />
+                        <a 
+                            href="https://www.themoviedb.org/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            <img 
+                                src={LogoTMDB} 
+                                alt="TMDB Logo" 
+                                className="h-8 ml-8 cursor-pointer hover:opacity-80 transition-opacity"
+                            />
+                        </a>
                     </div>
                     
                     {/* Icônes à droite */}
                     <div className="flex gap-3 text-white text-xl">
-                        <FontAwesomeIcon icon={faFigma} />
-                        <FontAwesomeIcon icon={faDev} />
-                        <FontAwesomeIcon icon={faGithub} />
+                        <a 
+                            href="https://www.figma.com/design/A2QEl8jYbzYTk2FmIVwkLg/Projet-Ecole-et-perso?node-id=0-1" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-500 transition-colors cursor-pointer text-white"
+                        >
+                            <FontAwesomeIcon icon={faFigma} />
+                        </a>
+                        <a 
+                            href="https://dylan-blanc.students-laplateforme.io/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-500 transition-colors cursor-pointer text-white"
+                        >
+                            <FontAwesomeIcon icon={faDev} />
+                        </a>
+                        <a 
+                            href="https://github.com/dylan-blanc" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-500 transition-colors cursor-pointer text-white"
+                        >
+                            <FontAwesomeIcon icon={faGithub} />
+                        </a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,1 @@
+const DLE = { data, loading, error };
