@@ -24,13 +24,23 @@ function Gallerie() {
     // Get active tab from URL or default to 'poster'
     const activeTab = searchParams.get('tab') || 'poster';
 
-    // Fetch images
-    const imagesUrl = `http://localhost:3500/api/tmdb/${type}/${id}/images`;
-    const { data: imagesData, loading: loadingImages } = useFetchAPI({ url: imagesUrl });
+    // Déterminer si on a besoin des images ou des vidéos
+    const needsImages = activeTab !== 'videos';
+    const needsVideos = activeTab === 'videos';
 
-    // Fetch videos
+    // Fetch images - Seulement si onglet images actif
+    const imagesUrl = `http://localhost:3500/api/tmdb/${type}/${id}/images`;
+    const { data: imagesData, loading: loadingImages } = useFetchAPI({ 
+        url: imagesUrl, 
+        enabled: needsImages 
+    });
+
+    // Fetch videos - Seulement si onglet vidéos actif
     const videosUrl = `http://localhost:3500/api/tmdb/${type}/${id}/videos`;
-    const { data: videosData, loading: loadingVideos } = useFetchAPI({ url: videosUrl });
+    const { data: videosData, loading: loadingVideos } = useFetchAPI({ 
+        url: videosUrl, 
+        enabled: needsVideos 
+    });
 
     // Reset page when tab changes
     useEffect(() => {

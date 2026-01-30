@@ -80,7 +80,7 @@ function MediaCard({ media, type = 'movie' }) {
                         ))}
                     </div>
                     
-                    {/* Bouton Favoris - Div séparée */}
+                    {/* Bouton Favoris - qui ne sert a rien, juste pour faire jolie pour l'instant */}
                     <div className="w-6 h-6 bg-black/50 rounded-full flex items-center justify-center">
                         <button 
                             onClick={handleFavoriteClick}
