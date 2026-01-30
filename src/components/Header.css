@@ -1,0 +1,71 @@
+/* Header Styles */
+
+/* Burger menu - visible uniquement sur mobile */
+.burger-menu {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.burger-menu:hover {
+    color: #d1d5db;
+}
+
+/* User icon - visible uniquement sur mobile */
+.user-icon-mobile {
+    display: none;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.user-icon-mobile:hover {
+    opacity: 0.8;
+}
+
+.user-icon-mobile.authenticated {
+    color: #ef4444; /* Rouge */
+}
+
+.user-icon-mobile.not-authenticated {
+    color: #3b82f6; /* Bleu */
+}
+
+/* Desktop navigation links */
+.desktop-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 767px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .user-icon-mobile {
+        display: block;
+    }
+
+    .desktop-nav-links {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .burger-menu {
+        display: none;
+    }
+
+    .user-icon-mobile {
+        display: none;
+    }
+
+    .desktop-nav-links {
+        display: flex;
+    }
+}

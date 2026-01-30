@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useFetchAPI from '../hooks/useFetchAPI';
 
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 function MediaCard({ media, type = 'movie' }) {
     const [isFavorite, setIsFavorite] = useState(false);
+    const navigate = useNavigate();
     
     const title = type === 'movie' ? media.title : media.name;
     const date = type === 'movie' ? media.release_date : media.first_air_date;
@@ -34,8 +36,13 @@ function MediaCard({ media, type = 'movie' }) {
         setIsFavorite(!isFavorite);
     };
 
+    const handleCardClick = () => {
+        navigate(`/details/${type}/${media.id}`);
+    };
+
     return (
         <div 
+            onClick={handleCardClick}
             className="media-card relative rounded-lg overflow-hidden hover:
              group cursor-pointer"
             style={{ width: '137px', height: '261px' }}
@@ -66,7 +73,7 @@ function MediaCard({ media, type = 'movie' }) {
                         {genreNames.slice(0, 3).map((name, index) => (
                             <span 
                                 key={index} 
-                                className="text-yellow-400 text-xs font-medium"
+                                className="text-white text-xs font-medium"
                             >
                                 {name}{index < Math.min(genreNames.length, 3) - 1 ? ',' : ''}
                             </span>
@@ -106,3 +113,4 @@ function MediaCard({ media, type = 'movie' }) {
 }
 
 export default MediaCard;
+

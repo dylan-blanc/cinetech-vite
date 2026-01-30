@@ -1,0 +1,550 @@
+/* ===== Details Page Styles ===== */
+
+.details-container {
+    position: relative;
+    padding: 1rem;
+}
+
+/* Bouton Favoris */
+.details-favorite-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.875rem;
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.details-favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Section principale - Desktop par défaut */
+.details-main-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Poster Container */
+.details-poster-container {
+    flex-shrink: 0;
+}
+
+.details-poster-img {
+    width: 220px;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.details-poster-placeholder {
+    width: 220px;
+    height: 330px;
+    background-color: #334155;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+}
+
+/* Vote Section - Desktop sous le poster */
+.details-vote-section {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.details-vote-average {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fb923c;
+}
+
+.details-vote-count {
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+/* Informations Container */
+.details-info-container {
+    flex: 1;
+}
+
+/* Titre */
+.details-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.details-title-year {
+    color: #94a3b8;
+    margin-left: 0.5rem;
+}
+
+/* Durée et Date */
+.details-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.details-runtime {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #a855f7;
+}
+
+.details-release-date {
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+/* Genres */
+.details-genres-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.details-genre {
+    color: #cbd5e1;
+}
+
+/* Overview / Description */
+.details-overview-section {
+    margin-bottom: 1.5rem;
+    background-color: rgba(40, 33, 41, 0.6);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.details-overview-text {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+/* Budget et Recette */
+.details-financial-section {
+    display: flex;
+    gap: 3rem;
+}
+
+.details-financial-item h3 {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.details-financial-item p {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ===== Carousel Section ===== */
+.details-carousel-section {
+    margin-bottom: 2rem;
+}
+
+.details-carousel-container {
+    position: relative;
+}
+
+.details-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.details-carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.details-carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.details-carousel-btn-left {
+    left: 0;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.details-carousel-btn-right {
+    right: 0;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.details-carousel-images {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    background-color: #3d363e;
+    border-radius: 0.5rem;
+    padding: 1rem 3rem;
+}
+
+.details-carousel-image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    width: 100px;
+    height: 140px;
+}
+
+.details-carousel-image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details-carousel-placeholder {
+    color: #64748b;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ===== Gallerie Section ===== */
+.details-gallery-section {
+    text-align: center;
+}
+
+.details-gallery-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.details-gallery-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.details-gallery-btn {
+    flex: 1;
+    max-width: 180px;
+    padding: 1rem 2rem;
+    background-color: #282129;
+    border: 3px solid #3d363e;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.details-gallery-btn:hover {
+    background-color: #3d363e;
+    border-color: #a52a2a;
+}
+
+.details-gallery-btn span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+
+/* ====================================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ==================================================== */
+
+/* Tablette large */
+@media screen and (max-width: 1024px) {
+    .details-main-section {
+        gap: 1.5rem;
+    }
+    
+    .details-poster-img,
+    .details-poster-placeholder {
+        width: 180px;
+        height: 270px;
+    }
+    
+    .details-title {
+        font-size: 1.5rem;
+    }
+    
+    .details-carousel-images {
+        padding: 1rem 2rem;
+    }
+    
+    .details-carousel-image-item {
+        width: 80px;
+        height: 112px;
+    }
+}
+
+/* Tablette */
+@media screen and (max-width: 768px) {
+    .details-container {
+        padding: 0.75rem;
+    }
+    
+    /* Layout vertical pour mobile */
+    .details-main-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .details-poster-container {
+        text-align: center;
+    }
+    
+    .details-poster-img,
+    .details-poster-placeholder {
+        width: 200px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Vote sur la même ligne que d'autres infos */
+    .details-vote-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .details-vote-average {
+        font-size: 1.125rem;
+    }
+    
+    .details-vote-count {
+        font-size: 0.75rem;
+    }
+    
+    /* Infos centrées */
+    .details-info-container {
+        text-align: center;
+    }
+    
+    .details-title {
+        font-size: 1.375rem;
+        text-align: center;
+    }
+    
+    .details-meta-row {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .details-genres-container {
+        justify-content: center;
+    }
+    
+    .details-overview-section {
+        padding: 0 0.5rem;
+    }
+    
+    .details-overview-text {
+        text-align: justify;
+        font-size: 0.8125rem;
+    }
+    
+    /* Budget/Recette centré */
+    .details-financial-section {
+        justify-content: center;
+        gap: 2rem;
+    }
+    
+    /* Carousel plus petit */
+    .details-carousel-images {
+        padding: 0.75rem 2.5rem;
+        min-height: 120px;
+    }
+    
+    .details-carousel-image-item {
+        width: 70px;
+        height: 98px;
+    }
+    
+    .details-carousel-btn {
+        padding: 0.5rem;
+    }
+    
+    /* Boutons gallery */
+    .details-gallery-btn {
+        padding: 0.75rem 1.5rem;
+        max-width: 140px;
+    }
+    
+    .details-gallery-btn span {
+        font-size: 0.875rem;
+    }
+}
+
+/* Mobile - Layout similaire à l'image */
+@media screen and (max-width: 480px) {
+    .details-container {
+        padding: 0.5rem;
+        background-color: #3d363e;
+    }
+    
+    .details-favorite-btn {
+        font-size: 1.5rem;
+        top: 0.25rem;
+        right: 0.25rem;
+    }
+    
+    /* Poster centré et taille adaptée */
+    .details-poster-img,
+    .details-poster-placeholder {
+        width: 180px;
+        height: 270px;
+    }
+    
+    /* Vote inline avec durée */
+    .details-vote-section {
+        margin-top: 0.25rem;
+    }
+    
+    .details-vote-average {
+        font-size: 1rem;
+    }
+    
+    /* Titre plus petit */
+    .details-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .details-title-year {
+        margin-left: 0.25rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Meta info compacte */
+    .details-meta-row {
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .details-runtime {
+        font-size: 0.875rem;
+    }
+    
+    .details-release-date {
+        font-size: 0.75rem;
+    }
+    
+    /* Genres plus compacts */
+    .details-genres-container {
+        gap: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .details-genre {
+        font-size: 0.8125rem;
+    }
+    
+    /* Overview - format similaire à l'image */
+    .details-overview-section {
+        background-color: rgba(40, 33, 41, 0.8);
+        padding: 0.75rem;
+        border-radius: 0.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .details-overview-text {
+        font-size: 0.75rem;
+        line-height: 1.5;
+        text-align: justify;
+    }
+    
+    /* Budget/Recette compact */
+    .details-financial-section {
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .details-financial-item h3 {
+        font-size: 0.75rem;
+    }
+    
+    .details-financial-item p {
+        font-size: 0.875rem;
+    }
+    
+    /* Carousel masqué ou très compact en mobile */
+    .details-carousel-section {
+        display: none;
+    }
+    
+    /* Gallerie - boutons style de l'image */
+    .details-gallery-section {
+        margin-top: 1rem;
+    }
+    
+    .details-gallery-title {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+    
+    .details-gallery-buttons {
+        gap: 0.75rem;
+    }
+    
+    .details-gallery-btn {
+        max-width: 120px;
+        padding: 0.75rem 1rem;
+        background-color: #1a1a1a;
+        border: 2px solid #5c1a1a;
+        border-radius: 0.375rem;
+    }
+    
+    .details-gallery-btn span {
+        font-size: 0.8125rem;
+        color: #8B0000;
+    }
+}
+
+/* Très petit mobile */
+@media screen and (max-width: 360px) {
+    .details-poster-img,
+    .details-poster-placeholder {
+        width: 150px;
+        height: 225px;
+    }
+    
+    .details-title {
+        font-size: 1rem;
+    }
+    
+    .details-overview-text {
+        font-size: 0.6875rem;
+    }
+    
+    .details-gallery-btn {
+        max-width: 100px;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .details-gallery-btn span {
+        font-size: 0.75rem;
+    }
+}
