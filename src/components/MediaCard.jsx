@@ -17,8 +17,8 @@ function MediaCard({ media, type = 'movie' }) {
     
     // Récupération des genres via l'API TMDB
     const genreUrl = type === 'movie' 
-        ? 'https://api.themoviedb.org/3/genre/movie/list?language=fr-FR'
-        : 'https://api.themoviedb.org/3/genre/tv/list?language=fr-FR';
+        ? 'http://localhost:3500/api/tmdb/genre/movie/list?language=fr-FR'
+        : 'http://localhost:3500/api/tmdb/genre/tv/list?language=fr-FR';
     
     const { data: genreData } = useFetchAPI({ url: genreUrl });
     const genres = genreData?.genres || [];
@@ -36,8 +36,9 @@ function MediaCard({ media, type = 'movie' }) {
 
     return (
         <div 
-            className="relative rounded-lg overflow-hidden hover:ring-2 hover:ring-orange-500 transition-all duration-300 hover:scale-105 group cursor-pointer"
-            style={{ width: '150px', height: '275px' }}
+            className="media-card relative rounded-lg overflow-hidden hover:
+             group cursor-pointer"
+            style={{ width: '137px', height: '261px' }}
         >
             {/* Poster */}
             {media.poster_path ? (
@@ -57,7 +58,7 @@ function MediaCard({ media, type = 'movie' }) {
             )}
 
             {/* Overlay des infos au hover */}
-            <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-2">
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-2">
                 {/* Top: Genres + Favoris */}
                 <div className="flex justify-between items-start">
                     {/* Genres */}
@@ -72,24 +73,32 @@ function MediaCard({ media, type = 'movie' }) {
                         ))}
                     </div>
                     
-                    {/* Bouton Favoris */}
-                    <button 
-                        onClick={handleFavoriteClick}
-                        className="text-2xl transition-transform hover:scale-110"
-                        title={isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
-                    >
-                        {isFavorite ? '❤️' : '🤍'}
-                    </button>
+                    {/* Bouton Favoris - Div séparée */}
+                    <div className="w-6 h-6 bg-black/50 rounded-full flex items-center justify-center">
+                        <button 
+                            onClick={handleFavoriteClick}
+                            className="text-sm transition-transform hover:scale-110"
+                            title={isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+                        >
+                            {isFavorite ? '❤️' : '🤍'}
+                        </button>
+                    </div>
                 </div>
 
-                {/* Bottom: Date + Note */}
-                <div className="flex items-center justify-between">
-                    <span className="text-white text-xs font-medium">
-                        {formattedDate}
+                {/* Bottom: Titre + Date + Note */}
+                <div className="flex flex-col gap-1">
+                    {/* Titre du média */}
+                    <span className="text-white text-sm font-semibold line-clamp-2">
+                        {title}
                     </span>
-                    <span className="text-orange-400 text-xs font-bold">
-                        {media.vote_average?.toFixed(1)}/10
-                    </span>
+                    <div className="flex items-center justify-between">
+                        <span className="text-white text-xs font-medium">
+                            {formattedDate}
+                        </span>
+                        <span className="text-orange-400 text-xs font-bold">
+                            {media.vote_average?.toFixed(1)}/10
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

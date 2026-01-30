@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
-
 
  function useFetchAPI({url}){
      const [data, setData] = useState(null);
@@ -16,7 +14,6 @@ const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
                 try {
                     const response = await fetch(url, {
                         headers: {
-                            Authorization: `Bearer ${API_TOKEN}`,
                             'Content-Type': 'application/json',
                         },
                     });
@@ -35,7 +32,7 @@ const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN;
             };
     
             fetchData();
-        }, []);
+        }, [url]);
 
         return { data, loading, error };
 }
