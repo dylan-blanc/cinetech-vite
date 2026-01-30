@@ -1,6 +1,7 @@
 import { useAuth } from "../hooks/useAuth";
 import { Link } from "react-router-dom";
 import LogoCNT from "../assets/LogoCNT.png";
+import SearchBar from "./SearchBar";
 
 function Header() {
     const { isAuthentificated, logout } = useAuth();
@@ -18,18 +19,7 @@ function Header() {
                     </Link>
 
                     {/* Barre de recherche */}
-                    <div className="flex-1 max-w-md mx-8">
-                        <div className="relative">
-                            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                                🔍
-                            </span>
-                            <input 
-                                type="text" 
-                                placeholder="Rechercher...."
-                                className="w-full bg-gray-800 border border-gray-600 rounded px-10 py-2 text-gray-300 placeholder-gray-500 focus:outline-none focus:border-purple-500"
-                            />
-                        </div>
-                    </div>
+                    <SearchBar />
 
                     {/* Navigation - Connexion et Inscription */}
                     <nav className="flex items-center gap-4">

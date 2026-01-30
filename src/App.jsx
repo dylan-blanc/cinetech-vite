@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SideBar from './components/SideBar';
 import Home from './view/Home';
+import Search from './view/Search';
 import AuthForm from './components/AA-ConnectForm';
 // import Connexion from './view/Connexion';
 // import Inscription from './view/Inscription';
@@ -21,6 +22,7 @@ function App() {
                     <div className="w-4/5 p-4">
                         <Routes>
                             <Route path="/" element={<Home />}  />
+                            <Route path="/recherche" element={<Search />} />
                             <Route path="/connexion" element={<AuthForm mode="login" />} />
                             <Route path="/inscription" element={<AuthForm mode="register" />} />
                             {/* <Route path="/series" element={<Series />} /> */}
