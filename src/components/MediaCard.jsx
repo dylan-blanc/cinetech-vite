@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useFetchAPI from '../hooks/useFetchAPI';
 
 const IMG_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
-function MediaCard({ media, type = 'movie' }) {
+function MediaCard({ media, type = 'movie', genres = [] }) {
     const [isFavorite, setIsFavorite] = useState(false);
     const navigate = useNavigate();
     
@@ -17,13 +16,7 @@ function MediaCard({ media, type = 'movie' }) {
         ? new Date(date).toLocaleDateString('fr-FR') 
         : 'N/A';
     
-    // Récupération des genres via l'API TMDB
-    const genreUrl = type === 'movie' 
-        ? 'http://localhost:3500/api/tmdb/genre/movie/list?language=fr-FR'
-        : 'http://localhost:3500/api/tmdb/genre/tv/list?language=fr-FR';
-    
-    const { data: genreData } = useFetchAPI({ url: genreUrl });
-    const genres = genreData?.genres || [];
+    // Les genres sont maintenant passés en props, plus besoin d'appel API !
     
     // Convertir les genre_ids en noms de genres
     const genreNames = genreIds

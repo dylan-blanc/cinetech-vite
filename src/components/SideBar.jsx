@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import useFetchAPI from "../hooks/useFetchAPI";
+import { useGenres } from "../contexts/GenresContext";
 import "./SideBar.css";
 
 function SideBar({ isOpen, onClose }) {
@@ -13,16 +13,8 @@ function SideBar({ isOpen, onClose }) {
     // Lire le type actuel depuis l'URL (movie par défaut)
     const currentType = searchParams.get('type') || 'movie';
 
-    // Récupération des genres via l'API TMDB selon le type
-    const genreEndpoint = currentType === 'tv' 
-        ? "http://localhost:3500/api/tmdb/genre/tv/list"
-        : "http://localhost:3500/api/tmdb/genre/movie/list";
-
-    const { data, loading, error } = useFetchAPI({
-        url: genreEndpoint
-    });
-
-    const genres = data?.genres || [];
+    // Utiliser le Context au lieu d'un appel API
+    const { genres, loading, error } = useGenres();
 
     // Fonction pour construire les URLs avec le type actuel
     const buildUrl = (params = {}) => {

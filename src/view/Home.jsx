@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import useFetchAPI from '../hooks/useFetchAPI';
+import { useGenres } from '../contexts/GenresContext';
 import MediaCard from '../components/MediaCard';
 import Pagination from '../components/Pagination';
 
@@ -27,23 +28,17 @@ function Home() {
         setCurrentPage(1);
     }, [genre, sortBy, contentType]);
 
-    // Récupérer le nom du genre selon le type (movie ou tv)
-    const genreEndpoint = contentType === 'tv' 
-        ? "http://localhost:3500/api/tmdb/genre/tv/list"
-        : "http://localhost:3500/api/tmdb/genre/movie/list";
-
-    const { data: genresData } = useFetchAPI({
-        url: genreEndpoint
-    });
+    // Utiliser le Context pour les genres (plus d'appel API ici)
+    const { genres } = useGenres();
 
     useEffect(() => {
-        if (genre && genresData?.genres) {
-            const foundGenre = genresData.genres.find(g => g.id === parseInt(genre));
+        if (genre && genres.length > 0) {
+            const foundGenre = genres.find(g => g.id === parseInt(genre));
             setGenreName(foundGenre?.name || '');
         } else {
             setGenreName('');
         }
-    }, [genre, genresData]);
+    }, [genre, genres]);
 
     // Construire l'URL API dynamiquement selon le type
     const discoverEndpoint = contentType === 'tv' ? 'discover/tv' : 'discover/movie';
@@ -153,7 +148,12 @@ function Home() {
             {/* Grille de médias */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-x-[13px] gap-y-[12px]">
                 {mediaItems.map((item) => (
-                    <MediaCard key={item.id} media={item} type={contentType} />
+                    <MediaCard 
+                        key={item.id} 
+                        media={item} 
+                        type={contentType} 
+                        genres={genres} 
+                    />
                 ))}
             </div>
 
