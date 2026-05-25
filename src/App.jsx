@@ -40,6 +40,7 @@ function App() {
                 <Route path="/gallerie/:type/:id" element={<Gallerie />} />
                 <Route path="/connexion" element={<AuthForm mode="login" />} />
                 <Route path="/inscription" element={<AuthForm mode="register" />} />
+                <Route path="*" element={<Home />} />
                 {/* <Route path="/series" element={<Series />} /> */}
               </Routes>
             </div>
